@@ -60,12 +60,12 @@ function CheckDiag(d, value){
 }
 
 
-//comprobar si se forma una linea, la funcion CheckLine()
+//comprobar si se forma una linea, la funcion CheckLine() es la encragada de verificar si la posicion en la que se encutra una de las fichas de juego forma una sesecion de de tres fichas consecutivas, de ser asi se dice que el juego a terminado.
+
 function CheckLine(){
 	if ( turn == "ball") value = 1;
 	else value = 2;
 	Line = false;
-
 	if (CheckRow(0, value) == 3) Line = true;
 	if (CheckRow(1, value) == 3) Line = true;
 	if (CheckRow(2, value) == 3) Line = true;
@@ -74,7 +74,81 @@ function CheckLine(){
 	if (CheckColumn(2, value) == 3) Line = true;
 	if (CheckDiag(1, value) == 3) Line = true;
 	if (CheckDiag(-1, value) == 3) Line = true;
-
 	if (Line == true) ShowMessage(value);
 }
 
+
+//contador de fichas,  esta funcion debe encargarse de llevar un conteo de las veces en que la ficha se a jugado y retornar ese valor.
+
+function CheckTurn_Count(turn_value){
+	Turn_count = 0;
+	for (i=0; i<3; i++){
+		for (j=0; j<3; j++){
+			if (board[i][j] == turn_value) Turn_count++;
+		}
+	}
+	return Turn_count;
+}
+
+//identificcador de movimientos diferentes, esta funcion nos sirve para poder identificar que los turnos del juego. si ya se jugó cruces, le pasa el turno a las bolas.
+
+function DifMov(x, y){
+	diferent = false;
+	if (turn == "cross"){
+		if ( x != Cross_Sellected_x ) diferent = true;
+		if ( y != Cross_Sellected_y ) diferent = true;
+	}
+	else{
+		if ( x != Ball_Sellected_x ) diferent = true;
+		if ( y != Ball_Sellected_y ) diferent = true;
+	}
+	return diferent;
+}
+
+//bloquear una fila o una columna, esta es una las funciones mas importantes para darle vida a la inteligencia artificial, en esta funcion al encontra dos fichas consecusitas del jugador la maquina debe bloquear la tercera casilla para evitar que el juego se termine.
+
+function CheckBlock(x,y){
+	//si hay 2 fichas del jugador y una de la maquina
+	if (CheckRow(y, 1) == 1 && CheckRow(y,2) == 2) return true;
+	if (CheckColumn(x, 1) == 1 && CheckColumn(x,2) == 2) return true;
+	if ( (x==0 && y==2) || (x==1 && y==1) || (x==2 && y==0)){
+		if (CheckDiag(1,1) == 1 && CheckDiag(1, 2) == 2) return true
+	}
+	if ( (x==0 && y==0) || (x==1 && y==1) || (x==2 && y==2)){
+		if (CheckDiag(-1,1) == 1 && CheckDiag(-1, 2) == 2) return true
+	}
+	return false;
+}
+
+# otras funciones necesarias para iniciar el juego
+ClearCell (x, y), funcion que se encrarga de limpiar las posiciones de la mtriz antes de iniciar cada juego. 
+
+function ClearCell (x, y){
+	board[x][y] = 0;
+	cell = document.getElementById("c" + x + y);
+	cell.innerHTML = "";
+}
+
+PaintCell (x, y), funcion encargada de asignar la ficha al juego. 
+
+function PaintCell (x, y){
+	cell = document.getElementById("c"+ x + y);
+	cell.innerHTML = "<img src= ./images/" + turn + ".gif></img>";
+
+	if (turn == "ball"){
+		board[x][y] = 1;
+		Ball_Sellected_x = x;
+		Ball_Sellected_y = y;
+	}
+	else{
+		board[x][y] = 2;
+		Cross_Sellected_x = x;
+		Cross_Sellected_y = y;
+	}
+
+	CheckLine();
+
+	if (turn == "ball") turn = "cross";
+	else turn = "ball";
+
+}
