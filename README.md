@@ -4,7 +4,7 @@ creación de videojuego con inteligencia artificial y patrones de arquitectura.
 #install
 npm i microkernel-artificial-inteligency
 
-# variables glovales a impelemntar para usar la inteligencia artificial
+# variables globales a implementar para usar la inteligencia artificial
  - board = Array(3); se debe crear una variable de tipo array de 3
  - turn; una viarible de turno que indicará si juegan las cruces o las bolas en el juego.
 - Cross_Sellected_x; indicara la posicion x en la que se encuentra la cruz
