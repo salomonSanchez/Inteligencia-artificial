@@ -36,12 +36,12 @@ function CheckColumn(y, value){
 
 //verificacion de diagonales, la funcion "CheckDiag(d, value)" se encrgará de recorrer las diagonalez para retornar el numero de total de fichas que se encuentren en la diagonal. las diagonales estan formadas de la siguiente manera segun la matriz
 
-/************************************
-/*	 c02	*	 c12	*	 c22	*
-/*************************************
-/*	 c01	*	 c11	*	 c21	*
-/*************************************
-/*	 c00	*	 c10	*	 c20	*
+************************************
+*	 c02	*	 c12	*	 c22	*
+*************************************
+*	 c01	*	 c11	*	 c21	*
+*************************************
+*	 c00	*	 c10	*	 c20	*
 ************************************
 	/   \
 	00	20
