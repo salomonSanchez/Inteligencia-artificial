@@ -17,12 +17,12 @@ npm i microkernel-artificial-inteligency
  //verificar fila, se de debe implentar la funcion "CheckRow(x, value)" la cual recibira dos parmetros de control, la x indica la posicion y el valor indica el turno de juego (0 para la maquina, 1 para el humano.).la funcion recorrera la matriz y retornará el numero total de fichas que se encuentren en la fila de la matriz. 
 
 - function CheckRow(x, value){
--	count_value = 0;
--	for (i=0; i<3; i++){
--		if (board[i][x] == value) count_value++;
--	}
--	return count_value;
-- }
+	count_value = 0;
+	for (i=0; i<3; i++){
+		if (board[i][x] == value) count_value++;
+	}
+	return count_value;
+}
 
 //verficar columna, la funcion "CheckColumn(y, value)" recibe de igual forma los mismos parametros de control que al funcion anterior a diferencia de que esta se encrgará de recorrer las columnas para retornar el numero de total de fichas que se encuentren en la columna. 
 
