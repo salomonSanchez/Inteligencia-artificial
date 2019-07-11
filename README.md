@@ -20,99 +20,39 @@ npm i microkernel-artificial-inteligency
 
 //verficar columna, la funcion "CheckColumn(y, value)" recibe de igual forma los mismos parametros de control que al funcion anterior a diferencia de que esta se encrgará de recorrer las columnas para retornar el numero de total de fichas que se encuentren en la columna. 
 
-function CheckColumn(y, value){
-	count_value = 0;
-	for (i=0; i<3; i++){
-		if (board[y][i] == value) count_value++;
-	}
-	return count_value;
-}
+![image](https://user-images.githubusercontent.com/42421550/61026552-41186980-a379-11e9-9a53-709e7ab7e9a1.png)
+
 
 //verificacion de diagonales, la funcion "CheckDiag(d, value)" se encrgará de recorrer las diagonalez para retornar el numero de total de fichas que se encuentren en la diagonal. las diagonales estan formadas de la siguiente manera segun la matriz
 
-************************************
-*	 c02	*	 c12	*	 c22	*
-*************************************
-*	 c01	*	 c11	*	 c21	*
-*************************************
-*	 c00	*	 c10	*	 c20	*
-************************************
-	/   \
-	00	20
-	11	11
-	22	02
+![image](https://user-images.githubusercontent.com/42421550/61026572-4bd2fe80-a379-11e9-9147-81227c64105e.png)
+
 
 por lo tanto para poder acceder a dichas posisciones usaremos la formula
  "[(1+d)][0] == value" y "[(1-d)][2] == value", donde "d" recibira valores entre (1 y -1) desde las funciones de inteligencia artificial para poder acceder a todas las diagones. (1+1)[0] = 20 , indicaría la diagonal derecha. etc. 
 
-function CheckDiag(d, value){
-	count_value = 0;
-	if (board[(1+d)][0] == value) count_value++;
-	if (board[1][1] == value) count_value++;
-	if (board[(1-d)][2] == value) count_value++;
-	return count_value;
-}
+![image](https://user-images.githubusercontent.com/42421550/61026576-5392a300-a379-11e9-940d-84060c623117.png)
 
 
 //comprobar si se forma una linea, la funcion CheckLine() es la encragada de verificar si la posicion en la que se encutra una de las fichas de juego forma una sesecion de de tres fichas consecutivas, de ser asi se dice que el juego a terminado.
 
-function CheckLine(){
-	if ( turn == "ball") value = 1;
-	else value = 2;
-	Line = false;
-	if (CheckRow(0, value) == 3) Line = true;
-	if (CheckRow(1, value) == 3) Line = true;
-	if (CheckRow(2, value) == 3) Line = true;
-	if (CheckColumn(0, value) == 3) Line = true;
-	if (CheckColumn(1, value) == 3) Line = true;
-	if (CheckColumn(2, value) == 3) Line = true;
-	if (CheckDiag(1, value) == 3) Line = true;
-	if (CheckDiag(-1, value) == 3) Line = true;
-	if (Line == true) ShowMessage(value);
-}
+![image](https://user-images.githubusercontent.com/42421550/61026588-5d1c0b00-a379-11e9-83e3-f4ce104e9ab6.png)
 
 
 //contador de fichas,  esta funcion debe encargarse de llevar un conteo de las veces en que la ficha se a jugado y retornar ese valor.
 
-function CheckTurn_Count(turn_value){
-	Turn_count = 0;
-	for (i=0; i<3; i++){
-		for (j=0; j<3; j++){
-			if (board[i][j] == turn_value) Turn_count++;
-		}
-	}
-	return Turn_count;
-}
+![image](https://user-images.githubusercontent.com/42421550/61026603-65744600-a379-11e9-94ff-37e49fcfa843.png)
+
 
 //identificcador de movimientos diferentes, esta funcion nos sirve para poder identificar que los turnos del juego. si ya se jugó cruces, le pasa el turno a las bolas.
 
-function DifMov(x, y){
-	diferent = false;
-	if (turn == "cross"){
-		if ( x != Cross_Sellected_x ) diferent = true;
-		if ( y != Cross_Sellected_y ) diferent = true;
-	}
-	else{
-		if ( x != Ball_Sellected_x ) diferent = true;
-		if ( y != Ball_Sellected_y ) diferent = true;
-	}
-	return diferent;
-}
+
+![image](https://user-images.githubusercontent.com/42421550/61026621-70c77180-a379-11e9-87b8-661809942be5.png)
+
 
 //bloquear una fila o una columna, esta es una las funciones mas importantes para darle vida a la inteligencia artificial, en esta funcion al encontra dos fichas consecusitas del jugador la maquina debe bloquear la tercera casilla para evitar que el juego se termine.
 
-function CheckBlock(x,y){
-	//si hay 2 fichas del jugador y una de la maquina
-	if (CheckRow(y, 1) == 1 && CheckRow(y,2) == 2) return true;
-	if (CheckColumn(x, 1) == 1 && CheckColumn(x,2) == 2) return true;
-	if ( (x==0 && y==2) || (x==1 && y==1) || (x==2 && y==0)){
-		if (CheckDiag(1,1) == 1 && CheckDiag(1, 2) == 2) return true
-	}
-	if ( (x==0 && y==0) || (x==1 && y==1) || (x==2 && y==2)){
-		if (CheckDiag(-1,1) == 1 && CheckDiag(-1, 2) == 2) return true
-	}
-	return false;
-}
+![image](https://user-images.githubusercontent.com/42421550/61026641-7ae97000-a379-11e9-9bc1-fcfad3b4f905.png)
 
 # otras funciones necesarias para iniciar el juego
 ClearCell (x, y), funcion que se encrarga de limpiar las posiciones de la mtriz antes de iniciar cada juego. 
