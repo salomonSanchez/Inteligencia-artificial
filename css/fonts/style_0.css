@@ -1,0 +1,153 @@
+body{
+	font-family: 'Amaranth', sans-serif;
+	font-size: 16px;
+	color: #776E65;
+	background-color: #FAF8EF;
+}
+#content: {
+	width: 100%;
+	margin: 0 auto;
+}
+#game{
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#game h1{
+	font-size: 3em;
+	text-align: center;
+	width: 100%;
+	margin: 20px;
+}
+#content_board{
+	text-align: center;
+}
+#board{
+	width: auto;
+	position: relative;
+	padding: 3px 0px 0px 3px;
+}
+
+
+#board .row{
+	width: 100%;
+	padding: 0px;
+}
+#board .row .cell{
+	padding: 0px;
+	border: 2px solid black;
+	margin: -3px;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	position: relative;
+}
+
+#board .row .cell:hover{
+	box-shadow: inset 0px 0px 6px green,
+				inset 0px 0px 2px green,
+				inset 0px 0px 15px green;
+}
+
+#board .row .cell img{
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	top: 5%;
+	left: 5%;
+}
+
+#message{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(250, 248, 239, 0.6);
+	display: block;
+}
+#message p#notification{
+	font-size: 6em;
+	font-weight: bolder;
+	color: #1B190f;
+	margin-top: 30px;
+	text-shadow: 1px 1px 1px rgb(250, 248, 239),
+			     -1px -1px 1px rgb(250, 248, 239);
+
+}
+#message #share_panel{
+	display: block;
+	text-align: center;
+}
+#message p#button{
+	font-size: 2.5em;
+	font-weight: bolder;
+	background-color: #1B190f;
+	border-radius: 20px 20px 0px 0px;
+	color:rgb(250, 248, 239);
+	margin-top: -50px;
+	width: 70%;
+	margin-left: 15%;
+	line-height: 80px;
+}
+#message p#button:hover{
+	cursor: pointer;
+}
+#message div#tweet_game{
+	background-color: #1B190f;
+	border-radius: 0px 0px 20px 20px;
+	color:rgb(250, 248, 239);
+	width: 70%;
+	margin-left: 15%;
+	margin-top: -40px;
+	padding: 10px 0px 20px 0px;
+	text-align: center;
+}
+
+
+.tweet{
+	padding: 5px 15px 5px 15px;
+	border-radius: 3px;
+	display: inline-block;
+	vertical-align: top;
+	color: #333; /*black*/
+	font-weight: bold;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+	text-align: left;
+	font-size: 15px;
+	line-height: 15px;
+	font-family: 'Helvetica Neue',Arial,sans-serif;
+	text-decoration: none;
+	
+	background: rgb(30,87,153); /* Old browsers */
+	background: -webkit-linear-gradient(rgba(30,87,153,1) 0%, 
+		                                rgba(252,252,252,1) 0%, 
+		                                rgba(214,214,214,1) 100%, 
+		                                rgba(4,5,7,1) 100%);
+	background: -o-linear-gradient(rgba(30,87,153,1) 0%, 
+		                           rgba(252,252,252,1) 0%, 
+		                           rgba(214,214,214,1) 100%, 
+		                           rgba(4,5,7,1) 100%);
+	background: linear-gradient(rgba(30,87,153,1) 0%, 
+		                        rgba(252,252,252,1) 0%, 
+		                        rgba(214,214,214,1) 100%, 
+		                        rgba(4,5,7,1) 100%);; /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 11.10+ */ /* IE10+ */ /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( 
+		                            startColorstr='#1e5799', 
+		                            endColorstr='#040507',
+		                            GradientType=0 ); /* IE6-9 */
+	position: relative;
+
+
+}	
+.tweet:before{
+	content: "\e600 ";
+	font-family: 'icomoon';
+	color: #37B4DD;
+	padding-right: 10px;
+	font-size: 17px;
+	position: relative;
+	margin-top: 20px;
+}

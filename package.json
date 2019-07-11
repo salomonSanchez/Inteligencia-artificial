@@ -1,0 +1,22 @@
+{
+  "name": "inteligencia-artificial",
+  "version": "1.0.0",
+  "description": "creación de videojuego con inteligencia artificial y patrones de arquitectura.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salomonSanchez/Inteligencia-artificial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salomonSanchez/Inteligencia-artificial/issues"
+  },
+  "homepage": "https://github.com/salomonSanchez/Inteligencia-artificial#readme",
+  "dependencies": {
+    "microkernel-artificial-inteligency": "^1.0.0"
+  }
+}

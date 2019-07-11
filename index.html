@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tic Tac Toe | Noughts & Crosses | 3 en raya</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="cross.gif">
+	<script src="./css/modernizer/modernizr.custom.60251.js"></script>
+
+</head>
+<body>
+	<div id="content">
+		<div id="game">
+			<div id="title">
+				<div>
+					<h1>Tic Tac Toe - Noughts & Crosses</h1>
+					<h1>Juego de las 3 en Raya</h1>
+				</div>
+				
+			</div>
+
+			<div id="content_board">
+				<div id="board">
+					<div class="rows">
+						
+						<div class="row">
+							<div id="c02" class="cell" onClick="CheckCell(0,2)"></div>
+							<div id="c12" class="cell" onClick="CheckCell(1,2)"></div>
+							<div id="c22" class="cell" onClick="CheckCell(2,2)"></div>
+						</div>
+						
+						<div class="row">
+							<div id="c01" class="cell" onClick="CheckCell(0,1)"></div>
+							<div id="c11" class="cell" onClick="CheckCell(1,1)"></div>
+							<div id="c21" class="cell" onClick="CheckCell(2,1)"></div>
+						</div>
+
+						<div class="row">
+							<div id="c00" class="cell" onClick="CheckCell(0,0)"></div>
+							<div id="c10" class="cell" onClick="CheckCell(1,0)"></div>
+							<div id="c20" class="cell" onClick="CheckCell(2,0)"></div>
+						</div>
+					</div>
+
+					<div id="message">
+						<p id="notification"></p>
+						<div id="share_panel">
+							<p id="button" onclick = "autoplay()"></p>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+			<div id="rules">
+				<div class="info">
+					<p class="english">Try put 3 cells in line. Select the cells where you want to put your crosses and when all crosses are on the board, select wich you want to move and then the new position.</p>
+				
+				</div>
+				<div class="info">
+					<p class="spanish">Intenta poner tres casillas en linea. Selecciona las casillas donde quieres poner tus tres fiches y cuando las tengas en el tablero selecciona la que quieras mover de sitio y despues su nueva posicion.</p>
+					
+				</div>
+				<div class="info">
+					<p class="contact"><a href="https://github.com/salomonSanchez/Inteligencia-artificial.git" target="_blank">Fork me in GitHub</a></p>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="js/messagamanager.js"></script>
+	<script src="js/check_manager.js"></script>
+	<script src="./node_modules/microkernel-artificial-inteligency/smart.js"></script>
+	<script src="js/autoplay.js"></script>
+</body>
+</html>
